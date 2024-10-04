@@ -2,8 +2,6 @@
 
 # dependencies
 /node_modules
-jspm_packages/
-/jspm_packages
 /.pnp
 .pnp.js
 

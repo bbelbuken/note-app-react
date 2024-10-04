@@ -8,25 +8,10 @@ import { useState, useEffect } from "react";
 function App() {
   const [items, setItems] = useState(
     JSON.parse(localStorage.getItem("shoppinglist")) || []
-  ); //for new users they don't have a local storage so we assign a new array that program doesn't crashes at start
-
+  );
+  
   const [newItem, setNewItem] = useState("");
   const [search, setSearch] = useState("");
-
-  /*   useEffect(() => { // if we don't put [] at the end, it will run all the time for every render. now its only running  at the app load. bc this array never changes and this is a dependency
-    console.log('load time');  
-  }, [])
- */
-  /* 
-  console.log('before useEffect'); //logs every time app renders
-  
-
-  useEffect(() => { //changing every time items being added or deleted
-    console.log('updating items state');
-  }, [items])
-
-  console.log('after useEffect');//logs every time app renders
- */
 
   useEffect(() => {
     localStorage.setItem("shoppinglist", JSON.stringify(items));
@@ -62,7 +47,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header title="Groceries" />
+      <Header title="Notes" />
       <AddItem
         newItem={newItem}
         setNewItem={setNewItem}
